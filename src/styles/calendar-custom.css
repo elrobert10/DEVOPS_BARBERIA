@@ -1,0 +1,148 @@
+/* calendar-custom.css */
+
+/* Estilo base de cada celda */
+.react-calendar__tile {
+  border-radius: 20px;
+  padding: 10px 0;
+  transition: all 0.2s ease;
+  border: 2px solid transparent !important;
+  position: relative;
+  font-weight: 500;
+}
+
+/* Efecto hover general: se oscurece ligeramente y escala */
+.react-calendar__tile:hover {
+  background-color: #e5e7eb !important;
+  transform: scale(1.05);
+  z-index: 5;
+  border-color: #9ca3af !important;
+}
+
+/* Día seleccionado (activo) - resalta con borde anaranjado y sombra */
+.react-calendar__tile--active {
+  border: 3px solid #C0A060 !important;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3) !important;
+  transform: scale(1.02);
+  z-index: 10;
+}
+
+/* Mantener colores de fondo para cada tipo, pero respetando el borde activo */
+.work-day {
+  background-color: #dcfce7 !important;
+  color: #065f46 !important;
+}
+
+.vacation-day {
+  background-color: #e0f2fe !important;
+  color: #075985 !important;
+}
+
+.unconfigured-day {
+  background-color: #f3f4f6 !important;
+  color: #4b5563 !important;
+}
+
+/* Hover específico para cada tipo (más notorio) */
+.work-day:hover {
+  background-color: #bbf7d0 !important;
+  border-color: #22c55e !important;
+}
+
+.vacation-day:hover {
+  background-color: #bae6fd !important;
+  border-color: #38bdf8 !important;
+}
+
+.unconfigured-day:hover {
+  background-color: #e5e7eb !important;
+  border-color: #9ca3af !important;
+}
+
+/* Cuando un día es activo y además tiene una clase específica,
+   el borde se superpone (ya definido arriba) pero podemos ajustar el fondo */
+.react-calendar__tile--active.work-day {
+  background-color: #bbf7d0 !important; /* un poco más oscuro que el normal */
+}
+
+.react-calendar__tile--active.vacation-day {
+  background-color: #bae6fd !important;
+}
+
+.react-calendar__tile--active.unconfigured-day {
+  background-color: #e5e7eb !important;
+}
+
+/* Día actual (hoy) */
+.react-calendar__tile--now {
+  background: #facc15 !important;
+  color: #000 !important;
+  font-weight: bold;
+  border-color: #C0A060 !important;
+}
+
+/* Si quieres que el día actual también muestre el borde activo cuando está seleccionado */
+.react-calendar__tile--now.react-calendar__tile--active {
+  border-color: #C0A060 !important;
+}
+
+/* Estilo para el punto indicador (opcional) */
+.react-calendar__tile .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin: 2px auto 0;
+}
+
+/* Mejora de los botones de navegación */
+.react-calendar__navigation button {
+  font-size: 1.1rem;
+  margin: 0 4px;
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: background 0.2s;
+}
+
+.react-calendar__navigation button:hover {
+  background-color: #f3f4f6;
+}
+
+.react-calendar__navigation button:active {
+  background-color: #e5e7eb;
+}
+
+/* Estilo para los días de la semana (cabecera) */
+.react-calendar__month-view__weekdays {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #4b5563;
+}
+
+.react-calendar__tile.selected-multi {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+  position: relative;
+  z-index: 2;
+}
+
+.react-calendar__tile--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  background-color: #e5e7eb !important;
+  color: #626875 !important;
+  position: relative;
+  isolation: isolate; /* crea un nuevo contexto de apilamiento */
+}
+
+.react-calendar__tile--disabled::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 80%;
+  height: 3px;
+  background-color: rgba(156, 163, 175, 0.8);
+  transform: rotate(-10deg) translateY(-50%);
+  z-index: 1;
+  border-radius: 2px;
+}
