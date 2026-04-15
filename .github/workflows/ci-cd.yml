@@ -16,7 +16,7 @@ jobs:
                 python-version: "3.11"
           # Instalacion de dependencias de python
           - name: Install dependencies
-            run: pip install -r requirements.txt
+            run: pip install -r src/requirements.txt
           # Instalacion de dependencias de node
           - name: Install dependencies node
             run: npm install
